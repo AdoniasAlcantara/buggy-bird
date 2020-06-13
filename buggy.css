@@ -1,0 +1,83 @@
+:root {
+    --barrier-background: linear-gradient(to right, #90cc35 10%, #eefc8b 30%, #25570a);
+    --barrier-border: 4px solid #222222;
+}
+
+*, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #34dbe3;
+    box-shadow: 0 0 8px 0 #181818;
+    overflow: hidden;
+}
+
+#bird {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 20px);
+    height: 5vh;
+    width: 4.5vw;
+}
+
+#score {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 3rem;
+}
+
+.barrier-box {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barrier {
+    position: relative;
+    width: 7vw;
+    height: 40%;
+    background-image: var(--barrier-background);
+    border-left: var(--barrier-border);
+    border-right: var(--barrier-border);    
+}
+
+.barrier.bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-4px - 0.25vw);
+    width: 7.5vw;
+    height: 6vh;
+    background-image: var(--barrier-background);
+    border: var(--barrier-border);
+    box-shadow: -0 4px 8px 0 #222222;
+}
+
+.barrier.top::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: calc(-4px - 0.25vw);
+    width: 7.5vw;
+    height: 6vh;
+    background-image: var(--barrier-background);
+    border: var(--barrier-border);
+    box-shadow: -0 -4px 8px 0 #222222;
+}
